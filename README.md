@@ -1,7 +1,7 @@
 # Вопросы для собеседования на позицию frontend разработчика
 
 Блоки:
- - <a href="/#Antd">Каковы основные особенности TypeScript?</a><br>
+ - <a href="#react">Каковы основные особенности TypeScript?</a><br>
 
 <details>
 <summary><b>Preview title</b></summary>
