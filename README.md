@@ -32,7 +32,7 @@
     * [Что такое препроцессоры?](#css-scss-sass-preprocessor)
 
 ## TypeScript, JavaScript
-
+### Общие вопросы
 <section name="typescript-javascript-main-features">
 <details>
 <summary><b>Каковы основные особенности TypeScript?</b></summary>
@@ -64,6 +64,7 @@
 </section>
 <br>
 
+### Типы данных
 <section name="typescript-javascript-data-types">
 <details>
 <summary><b>Какие типы данных в TypeScript?</b></summary>
@@ -155,6 +156,7 @@ function getMessage() {
 </section>
 <br>
 
+### Типазация
 <section name="typescript-javascript-interface">
 <details>
 <summary><b>Что такое интерфейс в TypeScript?</b></summary>
@@ -214,6 +216,7 @@ let output2 = identity<number>(100);
 </section>
 <br>
 
+### Классы
 <section name="typescript-javascript-classes">
 <details>
 <summary><b>Что такое классы в TypeScript?</b></summary>
@@ -431,6 +434,7 @@ class Snake extends Animal {
 </section>
 <br>
 
+### JS/TS to HTML
 <section name="typescript-javascript-jsx">
 <details>
 <summary><b>Что такое JSX?</b></summary>
