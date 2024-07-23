@@ -9,6 +9,7 @@
   #### Типы данных
     * [Какие типы данных в TypeScript?](#typescript-javascript-data-types)
     * [Как проверить на null или undefined?](#typescript-javascript-null-undefined)
+    * [В чем разница между any и unknown?](#typescript-javascript-diff-any-and-unknown)
     * [Как преобразовать строку в число с помощью TypeScript?](#typescript-javascript-convert)
     * [Что такое promise и какие состояния у него есть?](#typescript-javascript-promise)
     * [Как и когда нужно использовать enum?](#typescript-javascript-enum)
@@ -126,6 +127,14 @@ function getMessage() {
 }
 ```
 
+</details>
+</section>
+
+<section name="typescript-javascript-diff-any-and-unknown">
+<details>
+<summary><b>В чем разница между any и unknown?</b></summary>
+
+unknown присваивается самому себе или any , а any — чему угодно.
 </details>
 </section>
 
