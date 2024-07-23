@@ -20,8 +20,8 @@
     * [Что такое интерфейс в TypeScript?](#typescript-javascript-interface)
     * [Что такое type(тип) в TypeScript?](#typescript-javascript-type)
     * [В чем разница между типом (type) и интерфейсом (interface)?](#typescript-javascript-diff-interface-and-type)
-    * [Что такое дженерики в TypeScript?](#typescript-javascript-generics)
     * [Какие коллекции поддерживает TypeScript?](#typescript-javascript-collections)
+    * [Что такое дженерики в TypeScript?](#typescript-javascript-generics)
     * [Перечисли утилитарные типы, которые знаешь?](#typescript-javascript-utilitarian-types)
   #### Классы
     * [Что такое классы в TypeScript?](#typescript-javascript-classes)
@@ -30,7 +30,8 @@
     * [Что такое переопределение метода в TypeScript?](#typescript-javascript-override)
     * [Как вызвать конструктор базового класса из дочернего класса в TypeScript?](#typescript-javascript-constructor)
 - ### [React](#react)
-    * [Что такое JSX?](#typescript-javascript-jsx)
+    * [Что такое JSX?](#react-jsx)
+    * [Перечислите основные хуки?](#react-all-hooks)
 - ### [Next](#next)
 - ### [Mobx](#mobx)
 - ### [Axios](#axios)
@@ -303,24 +304,6 @@ type IEmployee = {
 
 </details>
 
-<details name="typescript-javascript-generics">
-<summary><b>Что такое дженерики в TypeScript?</b></summary>
-
-Generics - это инструмент, который позволяет создавать компоненты, которые можно переиспользовать. Он создает компонент,
-который может работать с различными типами данных. Это позволяет пользователям использовать свои собственные типы.
-Generics гарантируют, что программа масштабируемой в долгосрочной перспективе.
-
-```typescript
-function identity<T>(arg: T): T {
-  return arg;
-}
-
-let output1 = identity<string>("myString");
-let output2 = identity<number>(100);
-```
-
-</details>
-
 <details name="typescript-javascript-collections">
 <summary><b>Какие коллекции поддерживает TypeScript?</b></summary>
 
@@ -384,6 +367,24 @@ weakSet.has(john) // true
 john = null
 weakSet.has(john) // false
 ```
+</details>
+
+<details name="typescript-javascript-generics">
+<summary><b>Что такое дженерики в TypeScript?</b></summary>
+
+Generics - это инструмент, который позволяет создавать компоненты, которые можно переиспользовать. Он создает компонент,
+который может работать с различными типами данных. Это позволяет пользователям использовать свои собственные типы.
+Generics гарантируют, что программа масштабируемой в долгосрочной перспективе.
+
+```typescript
+function identity<T>(arg: T): T {
+  return arg;
+}
+
+let output1 = identity<string>("myString");
+let output2 = identity<number>(100);
+```
+
 </details>
 
 <details name="typescript-javascript-utilitarian-types">
@@ -758,11 +759,25 @@ class Snake extends Animal {
 
 ## React
 
-<details name="typescript-javascript-jsx">
+<details name="react-jsx">
 <summary><b>Что такое JSX?</b></summary>
 
 JSX - это встраиваемый XML-подобный синтаксис, который позволяет создавать HTML. TypeScript поддерживает встраивание,
 проверку типов и компиляцию JSX непосредственно в JavaScript.
+</details>
+
+<details name="react-all-hooks">
+<summary><b>Перечислите основные хуки</b></summary>
+
+- **useState** - управления состоянием в функциональных компонентах
+- **useEffect** - выполнения побочных эффектов в функциональных компонентах (например, для получения данных или подписки на события)
+- **useContext** - доступа к значению контекста React в функциональном компоненте
+- **useRef** - создания изменяемых ссылок на элементы или значения, которые сохраняются во время рендеринга
+- **useCallback** - мемоизации функций для предотвращения ненужных повторных рендеров
+- **useMemo** - запоминания значений с целью повышения производительности за счет кэширования ресурсоемких вычислений
+- **useReducer** - управления состоянием с помощью функции reducer, аналогично тому, как это делается в Redux
+- **useLayoutEffect** - выполнения побочных эффектов подобно useEffect, с той разницей, что эффект запускается синхронно после всех мутаций DOM
+
 </details>
 
 ## Next
