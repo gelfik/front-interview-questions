@@ -11,7 +11,7 @@
  - <a href="#css-scss-sass">CSS, SCSS, SASS</a>
 
 ## TypeScript, JavaScript
-<a name="main-features"></a><details>
+<section name="main-features"></section><details>
 <summary><b>Каковы основные особенности TypeScript?</b></summary>
 
 - **Кроссплатформенность**: Компилятор TypeScript можно установить в любой операционной системе: Windows, macOS и Linux.
