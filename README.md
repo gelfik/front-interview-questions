@@ -42,8 +42,7 @@
 
 ### Общие вопросы
 
-<section name="typescript-javascript-main-features">
-<details>
+<details name="typescript-javascript-main-features">
 <summary><b>Каковы основные особенности TypeScript?</b></summary>
 
 - **Кроссплатформенность**: Компилятор TypeScript можно установить в любой операционной системе: Windows, macOS и Linux.
@@ -57,10 +56,8 @@
   клиентской веб-страницы.
 
 </details>
-</section>
 
-<section name="typescript-javascript-benefits">
-<details>
+<details name="typescript-javascript-benefits">
 <summary><b>В чем преимущества использования TypeScript?</b></summary>
 
 - TypeScript вносит порядок в код.
@@ -70,13 +67,11 @@
   транспиляции.
 
 </details>
-</section>
 <br>
 
 ### Типы данных
 
-<section name="typescript-javascript-data-types">
-<details>
+<details name="typescript-javascript-data-types">
 <summary><b>Какие типы данных в TypeScript?</b></summary>
 
 - **Number**: используется для представления значений чисел. Все числа в TypeScript хранятся как значения с плавающей
@@ -95,10 +90,8 @@
 - **Any**: произвольный тип.
 
 </details>
-</section>
 
-<section name="typescript-javascript-null-undefined">
-<details>
+<details name="typescript-javascript-null-undefined">
 <summary><b>Как проверить на null или undefined?</b></summary>
 
 Рекомендуется проверять `== null` как на `undefined`, так и `null`.
@@ -128,28 +121,22 @@ function getMessage() {
 ```
 
 </details>
-</section>
 
-<section name="typescript-javascript-diff-any-and-unknown">
-<details>
+<details name="typescript-javascript-diff-any-and-unknown">
 <summary><b>В чем разница между any и unknown?</b></summary>
 
 unknown присваивается самому себе или any , а any — чему угодно.
 </details>
-</section>
 
-<section name="typescript-javascript-convert">
-<details>
+<details name="typescript-javascript-convert">
 <summary><b>Как преобразовать строку в число с помощью TypeScript?</b></summary>
 
 Подобно JavaScript, вы можете использовать функции `parseInt` или `parseFloat` для преобразования строки в целое число
 или число с плавающей запятой соответственно. Вы также можете использовать унарный оператор `+` для преобразования
 строки в наиболее подходящий числовой тип, «3» становится целым числом 3, а «3.14» становится вещественным числом 3.14.
 </details>
-</section>
 
-<section name="typescript-javascript-promise">
-<details>
+<details name="typescript-javascript-promise">
 <summary><b>Что такое promise и какие состояния у него есть?</b></summary>
 
 Promise (обещание) — это объект, представляющий завершение (или неудачу) асинхронной операции и её результат. Он
@@ -191,7 +178,6 @@ Promise — это способ организации асинхронного 
 с асинхронными операциями, чем традиционные callback-функции. У каждого обещания есть три состояния: ожидание, исполнено
 и отклонено, которые помогают управлять результатом асинхронных операций.
 </details>
-</section>
 
 <details name="typescript-javascript-enum">
 <summary><b>Как и когда нужно использовать enum?</b></summary>
@@ -202,8 +188,7 @@ Promise — это способ организации асинхронного 
 
 ### Область видимости и замыкание
 
-<section name="typescript-javascript-variable">
-<details>
+<details name="typescript-javascript-variable">
 <summary><b>Как объявить переменную в TypeScript?</b></summary>
 
 Вы можете создавать переменные тремя способами: `var`, `let` и `const`.
@@ -225,10 +210,8 @@ const num: number = 100;
 ```
 
 </details>
-</section>
 
-<section name="typescript-javascript-circuit">
-<details>
+<details name="typescript-javascript-circuit">
 <summary><b>Что такое замыкание?</b></summary>
 
 Замыкание — это функция, которая запоминает своё лексическое окружение даже после того, как она выполняется вне своей
@@ -269,13 +252,11 @@ console.log(счетчик()); // 2
 она выполняется в другом контексте. Это позволяет функциям сохранять данные между вызовами и обеспечивать инкапсуляцию
 состояния, что очень полезно для создания приватных переменных и управления состоянием в программе.
 </details>
-</section>
 <br>
 
 ### Типазация
 
-<section name="typescript-javascript-interface">
-<details>
+<details name="typescript-javascript-interface">
 <summary><b>Что такое интерфейс в TypeScript?</b></summary>
 
 Интерфейс определяет свойства и методы, которые объект должен реализовать. Другими словами, интерфейс - это определение
@@ -291,10 +272,8 @@ interface IEmployee {
 ```
 
 </details>
-</section>
 
-<section name="typescript-javascript-type">
-<details>
+<details name="typescript-javascript-type">
 <summary><b>Что такое type(тип) в TypeScript?</b></summary>
 
 Тип определяет свойства и методы, которые объект должен содержать. Другими словами, тип - это определение кастомного
@@ -310,10 +289,8 @@ type IEmployee = {
 ```
 
 </details>
-</section>
 
-<section name="typescript-javascript-diff-interface-and-type">
-<details>
+<details name="typescript-javascript-diff-interface-and-type">
 <summary><b>В чем разница между типом (type) и интерфейсом (interface)?</b></summary>
 
 Во многих ситуациях type и interface взаимозаменяемы.
@@ -325,10 +302,8 @@ type IEmployee = {
 - Объявить новый кортеж с помощью interface нельзя
 
 </details>
-</section>
 
-<section name="typescript-javascript-generics">
-<details>
+<details name="typescript-javascript-generics">
 <summary><b>Что такое дженерики в TypeScript?</b></summary>
 
 Generics - это инструмент, который позволяет создавать компоненты, которые можно переиспользовать. Он создает компонент,
@@ -345,10 +320,8 @@ let output2 = identity<number>(100);
 ```
 
 </details>
-</section>
 
-<section name="typescript-javascript-collections">
-<details>
+<details name="typescript-javascript-collections">
 <summary><b>Какие коллекции поддерживает TypeScript?</b></summary>
 
 **Массивы**
@@ -412,10 +385,8 @@ john = null
 weakSet.has(john) // false
 ```
 </details>
-</section>
 
-<section name="typescript-javascript-utilitarian-types">
-<details>
+<details name="typescript-javascript-utilitarian-types">
 <summary><b>Перечисли утилитарные типы, которые знаешь?</b></summary>
 
 - `Awaited<T>` - это специальный тип, который может быть использован для обозначения типа, который будет возвращен из асинхронной функции.
@@ -574,13 +545,11 @@ type MethodType = ThisType<Foo["method"]>;
 // теперь MethodType это (this: Foo) => void
 ```
 </details>
-</section>
 <br>
 
 ### Классы
 
-<section name="typescript-javascript-classes">
-<details>
+<details name="typescript-javascript-classes">
 <summary><b>Что такое классы в TypeScript?</b></summary>
 
 Классы представляют собой общие поведения и атрибуты группы связанных объектов.
@@ -604,10 +573,8 @@ class Student {
 ```
 
 </details>
-</section>
 
-<section name="typescript-javascript-default-modifier">
-<details>
+<details name="typescript-javascript-default-modifier">
 <summary><b>Как управлять доступом к методам и переменным класса?</b></summary>
 
 По умолчанию все члены класса в TypeScript являются `public` (общедоступными).
@@ -690,10 +657,8 @@ bird.isUpdate = true; // Error
 ```
 
 </details>
-</section>
 
-<section name="typescript-javascript-getter-setter">
-<details>
+<details name="typescript-javascript-getter-setter">
 <summary><b>Что такое getters/setters? Как их использовать?</b></summary>
 
 Геттеры и сеттеры - это особые типы методов, которые помогают делегировать различные уровни доступа к частным переменным
@@ -733,10 +698,8 @@ if (employee.fullName) {
 ```
 
 </details>
-</section>
 
-<section name="typescript-javascript-override">
-<details>
+<details name="typescript-javascript-override">
 <summary><b>Что такое переопределение метода в TypeScript?</b></summary>
 
 Переопределение метода - это процесс, в котором методы базового класса переопределяются в дочернем классе.
@@ -759,10 +722,8 @@ emp.doEat(); // Output: Employee eats food.
 ```
 
 </details>
-</section>
 
-<section name="typescript-javascript-constructor">
-<details>
+<details name="typescript-javascript-constructor">
 <summary><b>Как вызвать конструктор базового класса из дочернего класса в TypeScript?</b></summary>
 
 Вы можете использовать функцию `super()` для вызова конструктора базового класса.
@@ -793,19 +754,16 @@ class Snake extends Animal {
 ```
 
 </details>
-</section>
 <br>
 
 ## React
 
-<section name="typescript-javascript-jsx">
-<details>
+<details name="typescript-javascript-jsx">
 <summary><b>Что такое JSX?</b></summary>
 
 JSX - это встраиваемый XML-подобный синтаксис, который позволяет создавать HTML. TypeScript поддерживает встраивание,
 проверку типов и компиляцию JSX непосредственно в JavaScript.
 </details>
-</section>
 
 ## Next
 
@@ -817,8 +775,7 @@ JSX - это встраиваемый XML-подобный синтаксис, �
 
 ## CSS, SCSS, SASS
 
-<section name="css-scss-sass-preprocessor">
-<details>
+<details name="css-scss-sass-preprocessor">
 <summary><b>Что такое препроцессоры?</b></summary>
 
 CSS препроцессор - это программа, которая имеет свой собственный синтаксис (syntax), но может сгенерировать из него CSS
@@ -836,4 +793,3 @@ CSS препроцессор - это программа, которая име�
 - Модули
 
 </details>
-</section>
