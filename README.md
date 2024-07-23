@@ -11,6 +11,7 @@
     * [Как проверить на null или undefined?](#typescript-javascript-null-undefined)
     * [Как преобразовать строку в число с помощью TypeScript?](#typescript-javascript-convert)
     * [Что такое promise и какие состояния у него есть?](#typescript-javascript-promise)
+    * [Как и когда нужно использовать enum?](#typescript-javascript-enum)
   #### Область видимости и замыкание
     * [Как объявить переменную в TypeScript?](#typescript-javascript-variable)
     * [Что такое замыкание?](#typescript-javascript-circuit)
@@ -19,13 +20,14 @@
     * [Что такое type(тип) в TypeScript?](#typescript-javascript-type)
     * [В чем разница между типом (type) и интерфейсом (interface)?](#typescript-javascript-diff-interface-and-type)
     * [Что такое дженерики в TypeScript?](#typescript-javascript-generics)
+    * [Какие коллекции поддерживает TypeScript?](#typescript-javascript-collections)
+    * [Для чего используется тип Record?](#typescript-javascript-record)
   #### Классы
     * [Что такое классы в TypeScript?](#typescript-javascript-classes)
     * [Как управлять доступом к методам и переменным класса?](#typescript-javascript-default-modifier)
     * [Что такое getters/setters? Как их использовать?](#typescript-javascript-getter-setter)
     * [Что такое переопределение метода в TypeScript?](#typescript-javascript-override)
     * [Как вызвать конструктор базового класса из дочернего класса в TypeScript?](#typescript-javascript-constructor)
-  #### JS/TS to HTML
 - ### [React](#react)
     * [Что такое JSX?](#typescript-javascript-jsx)
 - ### [Next](#next)
@@ -181,6 +183,14 @@ Promise — это способ организации асинхронного 
 и отклонено, которые помогают управлять результатом асинхронных операций.
 </details>
 </section>
+
+<section name="typescript-javascript-enum">
+<details>
+<summary><b>Как и когда нужно использовать enum?</b></summary>
+
+В TypeScript `enum` представляют собой структуры данных постоянной длины, которые содержат набор констант. `Enum` полезны при присвоении свойств или значений, которые могут быть только определенным количеством возможных значений. Одним из распространенных примеров является значение масти одной карты в колоде игральных карт. Есть только 4 масти и не существует других возможных значений, и эти значения вряд ли изменятся. По этой причине `enum` было бы эффективным и ясным способом описания возможных мастей карты.
+</details>
+</section>
 <br>
 
 ### Область видимости и замыкание
@@ -327,6 +337,96 @@ let output1 = identity<string>("myString");
 let output2 = identity<number>(100);
 ```
 
+</details>
+</section>
+
+<section name="typescript-javascript-collections">
+<details>
+<summary><b>Какие коллекции поддерживает TypeScript?</b></summary>
+
+**Массивы**
+```typescript
+let num: number[] = [1, 2, 3];
+const numToo: Array<number> = [1, 2, 3];
+```
+
+**Tuples**
+```typescript
+const life: [string, number] = ["everything", 42];
+```
+
+**Объекты**
+```javascript
+const planet: { name: string; position: number } = {
+	name: "earth",
+	position: 3,
+};
+```
+
+**Map**
+```typescript
+const planet = new Map<string, string>();
+planet.set("name", "earth");
+planet.set("position", "1");
+
+console.log(planet);
+// Map { 'name' => 'earth', 'position' => '1' }
+```
+
+**Set**
+Набор - это упорядоченный список значений без дубликатов.
+```typescript
+const planet = new Set<string>();
+planet.add("earth");
+
+console.log(planet);
+// Set { 'earth' }
+```
+
+**WeakMap**
+```typescript
+const planet = { bodyType: "planet" }
+const weakMap = new WeakMap<{ bodyType: string }, string>();
+weakMap.set(planet, "earth");
+// Обьекты внутри `WeakMap` удаляются из `weakMap` при удалении обьекта, на который они ссылаются
+weakMap.has(planet) // true
+planet = null
+weakMap.has(planet) // false
+```
+
+**WeakSet**
+```typescript
+let john = { name: "earth" };
+const weakSet = new WeakSet<{ name: string }>();
+weakSet.add(john);
+// Обьекты внутри `weakSet` удаляются из `weakSet` при удалении обьекта, на который они ссылаются
+weakSet.has(john) // true
+john = null
+weakSet.has(john) // false
+```
+</details>
+</section>
+
+<section name="typescript-javascript-record">
+<details>
+<summary><b>Для чего используется тип Record?</b></summary>
+
+Создает тип объекта, ключи свойств которого `Keys`, а значениями свойств - `Type`. Эту утилиту можно использовать для сопоставления свойств одного типа с другим типом.
+
+```typescript
+interface CatInfo {
+	age: number;
+	breed: string;
+}
+
+type CatName = "miffy" | "boris" | "mordred";
+
+const cats: Record<CatName, CatInfo> = {
+	miffy: { age: 10, breed: "Persian" },
+	boris: { age: 5, breed: "Maine Coon" },
+	mordred: { age: 16, breed: "British Shorthair" },
+};
+```
 </details>
 </section>
 <br>
