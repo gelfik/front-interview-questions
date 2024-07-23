@@ -21,7 +21,7 @@
     * [В чем разница между типом (type) и интерфейсом (interface)?](#typescript-javascript-diff-interface-and-type)
     * [Что такое дженерики в TypeScript?](#typescript-javascript-generics)
     * [Какие коллекции поддерживает TypeScript?](#typescript-javascript-collections)
-    * [Для чего используется тип Record?](#typescript-javascript-record)
+    * [Перечисли утилитарные типы, которые знаешь?](#typescript-javascript-utilitarian-types)
   #### Классы
     * [Что такое классы в TypeScript?](#typescript-javascript-classes)
     * [Как управлять доступом к методам и переменным класса?](#typescript-javascript-default-modifier)
@@ -407,25 +407,164 @@ weakSet.has(john) // false
 </details>
 </section>
 
-<section name="typescript-javascript-record">
+<section name="typescript-javascript-utilitarian-types">
 <details>
-<summary><b>Для чего используется тип Record?</b></summary>
+<summary><b>Перечисли утилитарные типы, которые знаешь?</b></summary>
 
-Создает тип объекта, ключи свойств которого `Keys`, а значениями свойств - `Type`. Эту утилиту можно использовать для сопоставления свойств одного типа с другим типом.
-
+- `Awaited<T>` - это специальный тип, который может быть использован для обозначения типа, который будет возвращен из асинхронной функции.
 ```typescript
-interface CatInfo {
-	age: number;
-	breed: string;
+async function getData(): Promise<string> {
+    return 'hello';
 }
 
-type CatName = "miffy" | "boris" | "mordred";
+let awaitedData: Awaited<ReturnType<typeof getData>>;
+// теперь awaitedData может быть 'hello'
+```
 
-const cats: Record<CatName, CatInfo> = {
-	miffy: { age: 10, breed: "Persian" },
-	boris: { age: 5, breed: "Maine Coon" },
-	mordred: { age: 16, breed: "British Shorthair" },
-};
+- `Partial<T>` - делает все свойства объекта типа T необязательными.
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+
+let partialPerson: Partial<Person>;
+// теперь partialPerson может быть { name?: string; age?: number; }
+```
+
+- `Required<T>` - делает все свойства объекта типа T обязательными.
+```typescript
+interface Person {
+  name?: string;
+  age?: number;
+}
+
+let requiredPerson: Required<Person>;
+// теперь requiredPerson может быть { name: string; age: number; }
+```
+
+- `Readonly<T>` - делает все свойства объекта типа T доступными только для чтения.
+```typescript
+interface Point {
+  x: number;
+  y: number;
+}
+
+let readonlyPoint: Readonly<Point>;
+// теперь readonlyPoint может быть { readonly x: number; readonly y: number; }
+```
+
+- `Record<Keys, Type>` - создает тип, который является записью с ключами, определенными в первом параметре, и значениями типа, определенного во втором параметре.
+```typescript
+type Keys = 'a' | 'b' | 'c';
+type RecordType = Record<Keys, number>;
+
+let record: RecordType;
+// теперь record может быть { a: number, b: number, c: number }
+```
+
+- `Pick<T, K extends keyof T>` - выбирает свойства объекта типа T с ключами, указанными в K.
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+
+let pickedPerson: Pick<Person, 'name'>;
+// теперь pickedPerson может быть { name: string; }
+```
+
+- `Omit<T, K extends keyof T>` - выбирает свойства объекта типа T, исключая те, которые указаны в K.
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+
+let omittedPerson: Omit<Person, 'age'>;
+// теперь omittedPerson может быть { name: string; }
+```
+
+- `Exclude<UnionType, ExcludedMembers>` - исключает определенные типы из объединенного типа.
+```typescript
+type A = 'a' | 'b' | 'c';
+type B = Exclude<A, 'a' | 'b'>;
+// теперь B это 'c'
+```
+
+- `Extract<Type, Union>` - извлекает из типа Type только те типы, которые присутствуют в Union.
+```typescript
+type A = 'a' | 'b' | 'c';
+type B = 'a' | 'b';
+type C = Extract<A, B>;
+// теперь C это 'a' | 'b'
+```
+
+- `NonNullable<Type>` - извлекает тип из Type, исключая null и undefined.
+```typescript
+let value: string | null | undefined;
+let nonNullableValue: NonNullable<typeof value>;
+// теперь nonNullableValue это string
+```
+
+- `Parameters<Type>` - извлекает типы аргументов функции Type.
+```typescript
+function foo(a: string, b: number) {}
+type FooParameters = Parameters<typeof foo>;
+// теперь FooParameters это [string, number]
+```
+
+- `ConstructorParameters<Type>` - извлекает типы аргументов конструктора Type.
+```typescript
+class Foo {
+    constructor(a: string, b: number) {}
+}
+type FooConstructorParameters = ConstructorParameters<typeof Foo>;
+// теперь FooConstructorParameters это [string, number]
+```
+
+- `ReturnType<Type>` - извлекает тип возвращаемого значения функции Type.
+```typescript
+function foo(): string { return 'hello'; }
+type FooReturnType = ReturnType<typeof foo>;
+// теперь FooReturnType это string
+```
+
+- `InstanceType<Type>` - извлекает тип экземпляра класса Type.
+```typescript
+class Foo { x: number }
+type FooInstance = InstanceType<typeof Foo>;
+// теперь FooInstance это { x: number }
+```
+
+- `ThisParameterType<Type>` - извлекает тип this из функции Type.
+```typescript
+class Foo {
+    x: number;
+    method(this: this): void { }
+}
+type ThisType = ThisParameterType<Foo["method"]>;
+// теперь ThisType это Foo
+```
+
+- `OmitThisParameter<Type>` - определяет функцию без типа this.
+```typescript
+class Foo {
+    x: number;
+    method(this: this): void { }
+}
+type MethodType = OmitThisParameter<Foo["method"]>;
+// теперь MethodType это () => void
+```
+
+- `ThisType<Type>` - добавляет тип this к функции Type.
+```typescript
+class Foo {
+    x: number;
+    method(): void { }
+}
+type MethodType = ThisType<Foo["method"]>;
+// теперь MethodType это (this: Foo) => void
 ```
 </details>
 </section>
