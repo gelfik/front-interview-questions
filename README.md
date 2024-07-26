@@ -1454,12 +1454,6 @@ function App() {
 
 </details>
 
-<details name="react-lazy-loading">
-<summary><b>Как работает "ленивая загрузка" (lazy loading) компонентов?</b></summary>
-
-
-</details>
-
 ## Next
 
 ## Mobx
